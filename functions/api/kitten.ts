@@ -1,6 +1,6 @@
 export async function onRequest() {
   // randomly error
-  if (Math.random() <= 0.25) {
+  if (Math.random() <= 0.28) {
     throw new Error("Just a fake exception!");
   }
 
