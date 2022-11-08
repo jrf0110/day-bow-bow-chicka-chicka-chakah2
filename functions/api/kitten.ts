@@ -11,7 +11,7 @@ export async function onRequest() {
 
   const imageData: Array<{ contentType: string; data: string }> =
     (await Promise.all(
-      [...new Array(51)].map((_, i) =>
+      [...new Array(5)].map((_, i) =>
         fetch(`http://placekitten.com/400/${200 + i}`).then(async (res) => ({
           contentType: res.headers.get("Content-Type"),
           data: await res.text(),
