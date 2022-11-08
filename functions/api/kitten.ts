@@ -9,15 +9,21 @@ export async function onRequest() {
     await new Promise((r) => setTimeout(r, 1000 * 60 * 60));
   }
 
-  const imageData: Array<{ contentType: string; data: string }> =
-    (await Promise.all(
-      [...new Array(5)].map((_, i) =>
-        fetch(`http://placekitten.com/400/${200 + i}`).then(async (res) => ({
-          contentType: res.headers.get("Content-Type"),
-          data: await res.text(),
-        }))
-      )
-    )) as any;
+  const imageData: string[] = (await Promise.all(
+    [...new Array(5)].map((_, i) =>
+      fetch(`http://placekitten.com/400/${200 + i}`)
+        .then((response) => response.blob())
+        .then(
+          (blob) =>
+            new Promise((resolve, reject) => {
+              const reader = new FileReader();
+              reader.onloadend = () => resolve(reader.result);
+              reader.onerror = reject;
+              reader.readAsDataURL(blob);
+            })
+        )
+    )
+  )) as any;
 
   return new Response(
     `
@@ -33,10 +39,10 @@ export async function onRequest() {
 </head>
 <body>
 ${imageData
-  .map(({ contentType, data }) =>
+  .map((dataUrl) =>
     `
 <div class="kitten-row">
-<img src="data:${contentType};base64,${btoa(data)}" />
+<img src="${dataUrl}" />
 </div>
 `.trim()
   )
