@@ -4,11 +4,15 @@
   "description": "",
   "main": "_smerker.js",
   "scripts": {
+    "start": "ahhhhh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "next": "^13.2.4"
+  },
+  "optionalDependencies": {
+    "ahhhhh": "^1.0.0"
   }
 }
