@@ -10,8 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "gatsby": "4.0.0",
-    "react": "17.0.2"
+    "gatsby": "5.8.0",
+    "react": "18.0.0"
   },
   "optionalDependencies": {
     "ahhhhh": "^1.0.0"
