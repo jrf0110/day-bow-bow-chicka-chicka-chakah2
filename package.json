@@ -4,14 +4,13 @@
   "description": "",
   "main": "_smerker.js",
   "scripts": {
-    "start": "ahhhhh",
+    "start": "ahhhhh && node build-the-puppets.js",
     "test": "echo \"Errrrror: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "puppeteer": "^19.8.5",
-    "react": "18.0.0"
+    "puppeteer": "^19.8.5"
   },
   "optionalDependencies": {
     "ahhhhh": "^1.0.0"
